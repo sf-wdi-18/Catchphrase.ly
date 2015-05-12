@@ -1,1 +1,6 @@
-// Ajax & underscore templating
+// on page load
+$(function(){
+
+  
+
+});

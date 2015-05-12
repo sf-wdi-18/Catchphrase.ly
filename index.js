@@ -18,6 +18,12 @@ app.get("/", function(req, res){
   res.sendFile(path.join(__dirname + '/public/views/index.html'));
 });
 
+// foods index path
+app.get("/foods", function(req, res){
+  // render foods index as JSON
+  res.send(JSON.stringify(foods));
+});
+
 // listen on port 3000
 app.listen(3000, function(){
   console.log("listening on port 3000");

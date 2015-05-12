@@ -20,6 +20,9 @@
 
 * seed food index
 
+* food index path, render JSON
+
+
 ##Goal
 
 #1
