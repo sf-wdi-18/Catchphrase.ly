@@ -1,4 +1,4 @@
-# toEatApp
+#toEatApp
 
 ##Starting point
 
@@ -22,6 +22,15 @@
 
 ##Goal
 
-....
+#1
+* Get foods displayed on index.html using AJAX & Underscore templating
+
+#2
+* Add a food with a bootstrap form, an AJAX post, and an Express route that pushes a new food into the foods array
+
+#3
+* Delete a food, similar to above
+
+
 
 
