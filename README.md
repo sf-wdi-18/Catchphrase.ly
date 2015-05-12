@@ -1,4 +1,4 @@
-#toEatApp
+#ToEat.ly
 
 ##Starting point
 
