@@ -30,8 +30,8 @@
 </body>
   <!-- Underscore templates -->
   <script type="text/template" id="foods-template">
-    <% _.each(foods, function(food){ %>
-      <li class='list-group-item'><%= food %></li>
+    <% _.each(collection, function(item){ %>
+      <li class='list-group-item'><%= item %></li>
     <% }); %>
   </script>
 </html>

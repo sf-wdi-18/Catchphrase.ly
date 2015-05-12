@@ -20,9 +20,9 @@ function View() {};
 // a 'class method' aka static method for the View object
 View.render = function(items, parentId, templateId) {
   // get food template
-  var foodTemplate = _.template($("#" + templateId).html());
+  var template = _.template($("#" + templateId).html());
   // input data into template and append to parent
-  $("#" + parentId).html(foodTemplate({foods: items}));
+  $("#" + parentId).html(template({collection: items}));
 };
 // target a parent and clear everything inside
 View.clear = function(parentId) {
