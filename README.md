@@ -1,5 +1,7 @@
 # toEatApp
 
+##Starting point
+
 * npm init
 * npm install express --save
 
@@ -7,10 +9,19 @@
 * require express
 * create a route for "/" and listen, test it works
 
-* touch html file
-* static assets
 * use nodemon
 
-* 
+* touch html file
+* require path & serve up public folder assets
+* sendFile index.html
+* link to css & js in html
+
+* require bootstrap & jQuery
+
+* seed food index
+
+##Goal
+
+....
 
 
