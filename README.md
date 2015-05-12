@@ -1,2 +1,16 @@
-# ajax-crud
-CRUD a to eat list—Express backend and Underscore templating
+# toEatApp
+
+* npm init
+* npm install express --save
+
+* touch index.js
+* require express
+* create a route for "/" and listen, test it works
+
+* touch html file
+* static assets
+* use nodemon
+
+* 
+
+
