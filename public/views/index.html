@@ -23,9 +23,15 @@
       <h1>ToEat.ly <small>Put it in my belly!</small></h1>
     </header>
     <!-- main -->
-    <ul class="list-group" id="foods">
+    <ul class="list-group" id="food-ul">
       <!-- <li class="list-group-item">Cras justo odio</li> -->
     </ul>
   </div>
 </body>
+  <!-- Underscore templates -->
+  <script type="text/template" id="foods-template">
+    <% _.each(foods, function(food){ %>
+      <li class='list-group-item'><%= food %></li>
+    <% }); %>
+  </script>
 </html>
