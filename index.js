@@ -12,7 +12,6 @@ app.use(express.static(__dirname + '/public'));
 
 // body parser config
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 // DATA //
 
