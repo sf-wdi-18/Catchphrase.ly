@@ -41,6 +41,8 @@ app.get("/foods", function (req, res){
 app.post("/foods", function (req, res){
   // find new food in the req.body (thanks body parser)
   var newFood = req.body;
+  // grab the highest id, increment by 1 and set as the new food's id
+  newFood.id = foods[foods.length - 1].id + 1;
   // add to our food array
   foods.push(newFood);
   // render the created object as json
