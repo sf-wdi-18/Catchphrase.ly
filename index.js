@@ -1,15 +1,19 @@
-// requirements
+// REQUIREMENTS //
 var express = require("express"),
     app = express(),
     path = require("path"),
     bodyParser = require("body-parser");
 
+// CONFIG //
+
 // serve js & css files into a public folder
 app.use(express.static(__dirname + '/public'));
 
-// get post data from
+// body parser config
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// DATA //
 
 // food index
 var foods =[
@@ -19,6 +23,8 @@ var foods =[
   {name: "Foie Gras", yumminess: "omg"},
   {name: "Kale", yumminess: "meh"}
 ];
+
+// ROUTES //
 
 // root path
 app.get("/", function (req, res){
@@ -35,7 +41,7 @@ app.get("/foods", function (req, res){
 app.post("/foods", function (req, res){
   // find new food in the req.body (thanks body parser)
   var newFood = req.body;
-  console.log(req.body);
+  foods.push(newFood);
   // add it to our food array
   // foods.push(newFood);
   // render the created object as json
@@ -44,7 +50,7 @@ app.post("/foods", function (req, res){
 
 app.delete("/foods", function (req, res){
   //delete food from the array
-})
+});
 
 // listen on port 3000
 app.listen(3000, function (){
