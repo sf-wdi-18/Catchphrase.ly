@@ -42,7 +42,7 @@
         <!-- label for yuminess -->
         <span class="label label-default"><%= item.yumminess%></span>
         <!-- delete button w/ registered onclick function -->
-        <button onclick="Food.delete" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button data-id="<%= item.id %>" onclick="Food.delete(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </li>
     <% }); %>
   </script>

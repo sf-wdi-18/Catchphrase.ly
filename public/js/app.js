@@ -39,6 +39,18 @@ Food.all = function() {
 }
 Food.create = function(foodParams) {
   $.post("/foods", foodParams).done(function(res){
+    // once done, re-render all foods
     Food.all();
   });
 }
+Food.delete = function(food) {
+  var foodId = $(food).data().id;
+  $.ajax({
+    url: '/foods/' + foodId,
+    type: 'DELETE',
+    success: function(res) {
+      // once successfull, re-render all foods
+      Food.all();
+    }
+  })
+};

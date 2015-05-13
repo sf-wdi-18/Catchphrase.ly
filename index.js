@@ -2,6 +2,7 @@
 var express = require("express"),
     app = express(),
     path = require("path"),
+    _ = require("underscore"),
     bodyParser = require("body-parser");
 
 // CONFIG //
@@ -17,11 +18,11 @@ app.use(bodyParser.json());
 
 // pre-seeded food data
 var foods =[
-  {name: "Sushiritto", yumminess: "quite"},
-  {name: "Green Eggs & Ham", yumminess: "sure"},
-  {name: "Crayfish", yumminess: "depending"},
-  {name: "Foie Gras", yumminess: "omg"},
-  {name: "Kale", yumminess: "meh"}
+  {id: 0, name: "Sushiritto", yumminess: "quite"},
+  {id: 1, name: "Green Eggs & Ham", yumminess: "sure"},
+  {id: 2, name: "Crayfish", yumminess: "depending"},
+  {id: 3, name: "Foie Gras", yumminess: "omg"},
+  {id: 4, name: "Kale", yumminess: "meh"}
 ];
 
 // ROUTES //
@@ -41,15 +42,24 @@ app.get("/foods", function (req, res){
 app.post("/foods", function (req, res){
   // find new food in the req.body (thanks body parser)
   var newFood = req.body;
+  // add to our food array
   foods.push(newFood);
-  // add it to our food array
-  // foods.push(newFood);
   // render the created object as json
   res.send(JSON.stringify(newFood));
 });
 
-app.delete("/foods", function (req, res){
-  //delete food from the array
+app.delete("/foods/:id", function (req, res){
+  debugger;
+  // set the value of the id
+  var targetId = parseInt(req.params.id, 10);
+  // find item in the array matching the id
+  var targetItem = _.findWhere(foods, {id: targetId});
+  // get the index of the found item
+  var index = foods.indexOf(targetItem);
+  // remove the item at that index, only remove 1 item
+  foods.splice(index, 1);
+  // render deleted object
+  res.send(JSON.stringify(targetItem));
 });
 
 // listen on port 3000
