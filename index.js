@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 // DATA //
 
-// food index
+// pre-seeded food data
 var foods =[
   {name: "Sushiritto", yumminess: "quite"},
   {name: "Green Eggs & Ham", yumminess: "sure"},
@@ -45,7 +45,7 @@ app.post("/foods", function (req, res){
   // add it to our food array
   // foods.push(newFood);
   // render the created object as json
-  res.send(newFood);
+  res.send(JSON.stringify(newFood));
 });
 
 app.delete("/foods", function (req, res){

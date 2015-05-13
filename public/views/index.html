@@ -37,8 +37,12 @@
   <!-- <span class="label label-default">Default</span> -->
   <script type="text/template" id="foods-template">
     <% _.each(collection, function(item){ %>
+      <!-- li for each item -->
       <li class='list-group-item'><%= item.name %>
-       <span class="label label-default"><%= item.yumminess%></span>
+        <!-- label for yuminess -->
+        <span class="label label-default"><%= item.yumminess%></span>
+        <!-- delete button w/ registered onclick function -->
+        <button onclick="Food.delete" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </li>
     <% }); %>
   </script>

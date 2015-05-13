@@ -34,6 +34,20 @@
 #3
 * Delete a food, similar to above
 
+##CRUD
+* What is CRUD?
 
+##Posting
 
+* form event listener
+* serialize
+* post request
+* body parser
+* respond with object created
+* ONLY on done re-render the View (or just append the new element)
 
+##Deleting
+
+* Using unique incrementing ids & update app accordingly
+* finding the food with the proper ID & remove from array
+* When done, re-render the View (or remove the specific element)
