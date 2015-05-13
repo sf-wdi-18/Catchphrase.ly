@@ -50,9 +50,8 @@ app.post("/foods", function (req, res){
 });
 
 app.delete("/foods/:id", function (req, res){
-  debugger;
   // set the value of the id
-  var targetId = parseInt(req.params.id, 10);
+  var targetId = req.params.id;
   // find item in the array matching the id
   var targetItem = _.findWhere(foods, {id: targetId});
   // get the index of the found item
