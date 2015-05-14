@@ -17,7 +17,7 @@ Reference lesson: [Underscore templating](https://github.com/sf-wdi-18/notes/tre
 ###General Guidelines
 * Start an express project with all the necessary requirements
 * Create an index (home) page
-* Serve up your static assets (html, cs, js) in a public directory
+* Serve up your static assets (html, css, js) in a public directory
 * Your '/phrases' route should return phrases as JSON
 * Use AJAX to GET phrases
 * Render the phrases on the index page using underscore templating
