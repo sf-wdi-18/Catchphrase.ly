@@ -10,7 +10,7 @@ Reference lesson: [Underscore templating](https://github.com/sf-wdi-18/notes/tre
 
 * The app now holds an array of hard-coded phrases. This serves as our "database". (We made a few up!)
 
-###Walktrhough  
+###Walkthrough  
 
 ####Start an express project with all the necessary requirements. 
 
