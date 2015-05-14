@@ -27,9 +27,9 @@ We're starting from nothing, so let's break this into subgoals:
 	**Option B**: Make a directory for the project, turn it into a git repo, and connect it to a new remote GitHub repo.    
 		* Make a directory and turn it into a git repo.   
 			```
-			$ mkdir catchphrase.ly
-			$ cd catchphrase.ly
-			$ git init
+			$ mkdir catchphrase.ly     
+			$ cd catchphrase.ly    
+			$ git init    
 			```     
 		* Make a new repo for your project on GitHub.      
 		* Add your new repo as a remote origin from your local repo. Use the same url we use for cloning.    
