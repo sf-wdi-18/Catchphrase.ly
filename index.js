@@ -22,7 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // pre-seeded phrase data
 var phrases =[
   {id: 0, word: "JSON", definition: "JavaScript Object Notation"},
-  {id: 1, word: "HTTP", definition: "Hyper Text Transfer Protocol"}
+  {id: 1, word: "HTTP", definition: "Hyper Text Transfer Protocol"},
+  {id: 2, word: "CRUD", definition: "Create, Read, Update, DESTROY"}
 ];
 
 // ROUTES //
