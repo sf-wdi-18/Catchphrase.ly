@@ -30,8 +30,8 @@ We're starting from nothing, so let's break this into subgoals:
 			$ mkdir catchphrase.ly
 			$ cd catchphrase.ly
 			$ git init
-			```
-		* Make a new repo for your project on GitHub.   
+			```     
+		* Make a new repo for your project on GitHub.      
 		* Add your new repo as a remote origin from your local repo. Use the same url we use for cloning.    
 			```
 			$ git remote add origin https://github.com/YOURUSERNAME/catchphrase.ly.git
