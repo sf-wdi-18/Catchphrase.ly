@@ -35,7 +35,10 @@ We're starting from nothing, so let's break this into subgoals:
 		* Add your new repo as a remote origin from your local repo. Use the same url we use for cloning.
 			```
 			$ git remote add origin https://github.com/YOURUSERNAME/catchphrase.ly.git
-			```
+			```   
+			
+			
+			    
 	*Now we're ready to start work on our project.*
 
 2. Create a file where our server code will live. We've been calling ours `index.js` because that's the default for npm. If you want, you could name yours `server.js` or some other more descriptive name.
@@ -76,7 +79,9 @@ We're starting from nothing, so let's break this into subgoals:
 5. Now is a good time to tell git to ignore all this extra code from our node packages.  We'll add the `node_modules` to the end of our `.gitignore` file.
 	```
 	$ echo "node_modules" >> .gitignore
-	```
+	```   
+	   
+	   
    	*Now we're ready to start coding on our server (in `index.js`).*
 
 
@@ -115,8 +120,9 @@ We're starting from nothing, so let's break this into subgoals:
 	app.listen(3000, function (){
   		console.log("listening on port 3000");
 	});
-	```
-
+	```   
+   
+   
 	*Everything to this point has been generic project setup, and setup on the server side. Right now, you could start up the server and see "catchphrase.ly home page" at `localhost:3000/`. We're ready to move over to the client side.*
 
 
