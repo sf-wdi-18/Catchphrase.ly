@@ -19,13 +19,13 @@ We're starting from nothing, so let's break this into subgoals:
 1. *We'll want to connect every new project to a GitHub repo.* You can start with a remote GitHub repo, or start with a local directory.   
 
 	**Option A**: Make a GitHub repo for the project and clone it onto your computer. (This is like what we've been doing.)   
-		* From your GitHub account, in the right side of the page's navbar, click the `+` button next to your user name.    
-		* In the `+` dropdown, choose "New repository".  
-		* Use the form to create your new repo.   
-		* Clone the repo to your computer with `git clone`.   
+	* From your GitHub account, in the right side of the page's navbar, click the `+` button next to your user name.    
+	* In the `+` dropdown, choose "New repository".  
+	* Use the form to create your new repo.   
+	* Clone the repo to your computer with `git clone`.   
 
 	**Option B**: Make a directory for the project, turn it into a git repo, and connect it to a new remote GitHub repo.    
-		* Make a directory and turn it into a git repo.   
+	* Make a directory and turn it into a git repo.   
 	```  
 	$ mkdir catchphrase.ly 
 	
@@ -34,8 +34,8 @@ We're starting from nothing, so let's break this into subgoals:
 	$ git init    
 	```
 	
-		* Make a new repo for your project on GitHub.      
-		* Add your new repo as a remote origin from your local repo. Use the same url we use for cloning.    
+	* Make a new repo for your project on GitHub.      
+	* Add your new repo as a remote origin from your local repo. Use the same url we use for cloning.    
 	
 	```
 	$ git remote add origin https://github.com/YOURUSERNAME/catchphrase.ly.git
