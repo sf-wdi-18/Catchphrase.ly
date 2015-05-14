@@ -16,7 +16,7 @@ Reference lesson: [Underscore templating](https://github.com/sf-wdi-18/notes/tre
 
 We're starting from nothing, so let's break this into subgoals:
       
-1. *We'll want to connect every new project to a GitHub repo.* You can start with a remote GitHub repo or star with a local directory.
+1. *We'll want to connect every new project to a GitHub repo.* You can start with a remote GitHub repo, or start with a local directory.
 
 	**Option A**: Make a GitHub repo for the project and clone it onto your computer. (This is like what we've been doing.)
 		* From your GitHub account, in the right side of the page's navbar, click the `+` button next to your user name. 
