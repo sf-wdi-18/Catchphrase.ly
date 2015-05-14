@@ -9,3 +9,5 @@
 * Underscore templating
 
 ###Made with <3 by WDI SF 18
+
+[Origional ToEat.ly](https://github.com/sf-wdi-18/ToEat.ly)

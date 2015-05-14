@@ -39,11 +39,21 @@ app.get("/foods", function (req, res){
 });
 
 app.post("/foods", function (req, res){
-  // food#create
+  var newFood = req.body;
+  //add a unique id
+  newFood.id = foods[foods.length - 1].id + 1;
+  // add new food to DB (array, really...)
+  foods.push(newFood);
+  // send a response with newly created object
+  res.send(newFood);
 });
 
 app.delete("/foods/:id", function (req, res){
-  // food#delete
+  console.log("hitting delete route");
+  // finding an object with id = req.body.id out of the foods
+  // try _.findWhere
+  // remove item from array
+  // render deleted object
 });
 
 // listen on port 3000
