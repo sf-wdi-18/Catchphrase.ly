@@ -63,13 +63,13 @@ We're starting from nothing, so let's break this into subgoals:
 	```
 	You'll see `npm init` asks about the "entry point" for your project. The default is `index.js`, so if you used another name, enter it for that question instead.
 
-4. Install the node packages we plan to use with `npm install`. Note that we can install multiple packages at once:
+4. Install the node packages we plan to use with `npm install --save`. Note that we can install multiple packages at once:
 
 	```
-	npm install express body-parser underscore
+	npm install --save express body-parser underscore
 	```
 
-	The command `npm install some-package` does three things:   
+	The command `npm install --save some-package` does three things:   
    	(1) creates a `node_modules` directory (if there isn't one already),    
    	(2) downloads the package into the `node_modules` directory, and    
    	(3) adds the package to the list of our project's dependencies in `package.json`.
