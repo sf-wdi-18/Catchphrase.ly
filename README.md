@@ -1,4 +1,4 @@
-#ToEat.ly
+#ToEat.ly in Class
 
 ##Eat your way to a better future!
 
