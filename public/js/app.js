@@ -41,6 +41,9 @@ Food.create = function(foodParams) {
   $.post("/foods", foodParams).done(function(res){
     // once done, re-render all foods
     Food.all();
+  }).done(function(res){
+    // reset form
+    $("#food-form")[0].reset();
   });
 }
 Food.delete = function(food) {
