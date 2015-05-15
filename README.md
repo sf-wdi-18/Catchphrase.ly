@@ -132,12 +132,13 @@ We're starting from nothing, so let's break this into subgoals:
 
 #### Create an index (home) page
 
-Set up a `public` directory and a `views` subdirectory, then create the home page. In class we've been calling it `index.html`, but let's use `home.html`.
-	```
-	$ mkdir public
-	$ mkdir public/views
-	$ touch public/views/home.html
-	```
+Set up a `public` directory and a `views` subdirectory, then create the home page. In class we've been calling it `index.html`, but let's use `home.html`.  
+
+```
+$ mkdir public  
+$ mkdir public/views  
+$ touch public/views/home.html  
+```
 
 #### Serve up your static assets (html, css, js) in a public directory
 
