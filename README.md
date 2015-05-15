@@ -45,3 +45,29 @@ Reference lesson: [Single Page POST & DELETE](https://github.com/sf-wdi-18/notes
 * Create a form for the user to add a new catchphrase
 * Send an AJAX POST with form data - if the post is successful, update the view
 * Add a delete button next to each catchphrase. When a user clicks the button, delete the corresponding phrase from the backend (the ids should match). If the delete is successful, update the view.
+
+
+##Day 3 / Weekend
+
+We will be building the last interation of the [CatchPrase.ly App](https://github.com/sf-wdi-18/Catchphrase.ly/blob/master/README.md)!
+
+Before you start, *make sure* you've completed Parts [1](https://github.com/sf-wdi-18/Catchphrase.ly/blob/master/README.md#day-1---get--render) & [2](https://github.com/sf-wdi-18/Catchphrase.ly/blob/master/README.md#day-2---post--delete). You *must* have routes for **Reading, Creating, and Deleting** your data.
+
+Reference lessons: [Mongo(ose) Intro](https://github.com/sf-wdi-18/notes/blob/master/lectures%2Fweek-03%2Fday_4_mongo%2Fdawn%2FREADME.md) & [Express Implementation of Mongo](https://github.com/sf-wdi-18/notes/blob/master/lectures%2Fweek-03%2Fday_4_mongo%2Fdusk_mongo_refactor%2FREADME.md)
+
+###Getting Started
+
+Make sure you can successfully connect to your DB & run CRUD commands from the Node REPL / console. Please test this beforehand.
+
+###Submission
+
+Submit a link to the catchphrase repo on your GitHub account.
+
+###User Stories
+**Goal**: Users can see the same phrases in the application, even if the server restarts. (The phrase data is *persistent*.)
+
+* Users should be able to see existing phrases (served from the DB) 
+* Users should be able to save new phrases (permanently to the DB)
+* Users should be able to delete specific phrases (from the DB)
+
+**Bonus**: Users should be able to edit & save (update) catchphrases that are already in the DB.
