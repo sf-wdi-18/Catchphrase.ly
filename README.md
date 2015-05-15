@@ -22,7 +22,7 @@ Reference lesson: [Underscore templating](https://github.com/sf-wdi-18/notes/tre
 * Use AJAX to GET phrases
 * Render the phrases on the index page using underscore templating
 
-<br><br><br><br>
+<br><br><br>
 
 ##Day 2 - Post & Delete
 Reference lesson: [Single Page POST & DELETE](https://github.com/sf-wdi-18/notes/blob/master/lectures%2Fweek-03%2Fday_3_todo_ajax%2Fdusk%2FREADME.md)
@@ -47,6 +47,8 @@ Reference lesson: [Single Page POST & DELETE](https://github.com/sf-wdi-18/notes
 * Add a delete button next to each catchphrase. When a user clicks the button, delete the corresponding phrase from the backend (the ids should match). If the delete is successful, update the view.
 
 
+<br><br><br>
+   
 ##Day 3 / Weekend
 
 We will be building the last interation of the [CatchPrase.ly App](https://github.com/sf-wdi-18/Catchphrase.ly/blob/master/README.md)!
