@@ -38,7 +38,9 @@ app.post("/phrases", function (req, res){
   var newPhrase = req.body;
   // set a sequential id
   newPhrase.id = phrases[phrases.length - 1].id + 1;
+  // add the new phrase to the phrases array
   phrases.push(newPhrase);
+  // send a JSON response
   res.send(JSON.stringify(newPhrase));
 });
 
