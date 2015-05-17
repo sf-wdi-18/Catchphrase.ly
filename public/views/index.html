@@ -28,23 +28,9 @@
       <input name="yumminess" class="form-control" placeholder="How yummy?">
       <button type="submit" class="btn btn-default">Add food</button>
     </form>
-    <!-- update food -->
 
-    <a id="toggler" href="#" data-toggle="collapse" class="active" data-target="#demo">
-        <i class="icon-folder-open"></i>
-        <i class="icon-folder-close"></i>
-        Update Food
-    </a>
 
-    <div id="demo" class="collapse">
-      <form id="food-update-form" class="form-inline">
-        <input name="name" type="text" class="form-control" id="food-to-update" placeholder="Name of food">
-        <input name="yumminess" class="form-control" placeholder="How yummy?">
-        <button type="submit" class="btn btn-default">Update food</button>
-      </form>
-    </div>
-
-    <!-- main -->
+    <!-- main content: food list group -->
     <ul class="list-group" id="food-ul">
     </ul>
   </div>
@@ -57,8 +43,26 @@
       <li class='list-group-item'><%= item.name %>
         <!-- label for yuminess -->
         <span class="label label-default"><%= item.yumminess%></span>
-        <!-- delete button w/ registered onclick function -->
-        <button data-id="<%= item._id %>" onclick="Food.delete(this)" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        
+        <div class="buttons">
+          <!-- edit link (pencil icon) to toggle form -->
+          <a id="toggler" href="#" data-toggle="collapse" class="active" data-target="#update-<%=item._id%>" >
+            <span class="glyphicon glyphicon-pencil edit" ></span>
+          </a>
+          
+          <!-- delete button w/ registered onclick function -->
+          <button data-id="<%= item._id %>" onclick="Food.delete(this)" type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!-- update food form -->
+        <div id="update-<%=item._id%>" class="collapse">
+          <form id="update-form-<%=item._id%>" class="form-inline" onsubmit="Food.update(event, this)">
+            <input name="name" type="text" class="form-control" placeholder="New food name?">
+            <input name="yumminess" class="form-control" placeholder="New yumminess?">
+            <button type="submit" class="btn btn-default">Update food</button>
+          </form>
+        </div> 
       </li>
     <% }); %>
   </script>

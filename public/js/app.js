@@ -17,25 +17,13 @@ View.init = function() {
     e.preventDefault();
     // format form data into a query string
     var foodParams = $(this).serialize();
+    console.log("createfood foodparams",foodParams, "!")
     Food.create(foodParams);
     // reset the form
     $("#food-form")[0].reset();
     // give focus back to the food name input element
     // (instead of whichever was focused when submit event happened)
     $("#new-food").focus();
-  });
-  $("#update-toggler").click(function(){
-    $(this).toggleClass('active, inactive');
-  });
-  $("#food-update-form").on("submit", function(e){
-    e.preventDefault();
-    var foodParams = $(this).serialize();
-    Food.update(foodParams);    
-    // reset the form
-    $("#food-udate-form")[0].reset();
-    // give focus back to the food name input element
-    // (instead of whichever was focused when submit event happened)
-    $("#food-update-form").focus();
   });
 }
 View.render = function(items, parentId, templateId) {
@@ -50,7 +38,6 @@ function Food() {};
 Food.all = function() {
   $.get("/foods", function(res){ 
     // parse the response
-    console.log(res);
     var foods = JSON.parse(res);
     // render the results
     View.render(foods, "food-ul", "foods-template");
@@ -76,9 +63,22 @@ Food.delete = function(food) {
   });
 };
 
-Food.update = function(food, foodParams){
-  var foodId = $(food).data().id;
-  $.post("/foods/" + foodId, foodParams).done(function(res){
-    Food.all();
+Food.update = function(event, arg2){
+  console.log("hi)")
+  console.log("event", event);
+  console.log("this, ", arg2)
+  //var foodParams = $(this).serialize();
+  // parsing the event out  
+  var foodParams = {};
+  var foodId = event.target.id.split("").slice(12).join("");
+  var newName = event.target[0].value;
+  var newYumminess = event.target[1].value;
+
+  $.post("/update", {id: foodId, name: newName, yumminess: newYumminess})
+  .done(function(res){
+    console.log("updated, yay!");
+   // Food.all();
   });
+  console.log("after response;")
+  return false;
 }

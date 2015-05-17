@@ -67,9 +67,29 @@ app.post("/foods", function (req, res){
   res.send(JSON.stringify(newFood));
 });
 
-// app.post("/foods/:id", foodParams).done(function(res){
-//     Food.all();
-//   });
+app.post("/update", function(req, res){
+  console.log("updating food with these params", req.body);
+  // not using findByIdAndUpdate because I want to individually check
+  // if we did get anything for our name, yumminess
+  db.Foods.findById(req.body.id, function (err, food) {
+    if (err) {
+      res.status(500).send("db find error");
+    } else {
+      if (req.body.name) {
+        food.name = req.body.name;
+      }
+      if (req.body.yumminess){
+        food.yumminess = req.body.yumminess;
+      }
+      food.save(function (err) {
+        if (err){
+          res.status(500).send("db save error");
+        }
+      });
+    }
+    res.redirect('/');
+  });
+});
 
 app.delete("/foods/:id", function (req, res){
   // find item in the db matching the id
