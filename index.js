@@ -15,7 +15,6 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // DATA //
-drop(db.Foods);
 
 function drop(Model){
   // removes all documents from this model
@@ -23,6 +22,8 @@ function drop(Model){
    console.log('all Foods documents removed');
   });
 }
+//drop(db.Foods);
+
 
 // pre-seeded food data
 var foods =[
@@ -36,10 +37,9 @@ var foods =[
 function addFoods(foodList){
   for (var i=0; i<foodList.length; i++){
     db.Foods.create({name: foodList[i].name, yumminess: foodList[i].yumminess});
-    console.log(foodList[i].name + " created");
   }
 }
-addFoods(foods);
+//addFoods(foods);
 
 // ROUTES //
 
@@ -51,9 +51,9 @@ app.get("/", function (req, res){
 
 // foods index path
 app.get("/foods", function (req, res){
-  // render foods index as JSON
-  //res.send(JSON.stringify(foods));
+  // find *all* foods
   db.Foods.find({}, function(err, results){
+    // send them as JSON-style string
     res.send(JSON.stringify(results));
   })
 });
@@ -63,42 +63,43 @@ app.post("/foods", function (req, res){
   var newFood = req.body;
   // add the new food to our db (mongoose will give it an _id)
   db.Foods.create(newFood);
-  // render the created object as json
+  // respond with the created object as json string
   res.send(JSON.stringify(newFood));
 });
 
 app.post("/update", function(req, res){
   console.log("updating food with these params", req.body);
   // not using findByIdAndUpdate because I want to individually check
-  // if we did get anything for our name, yumminess
+  // if we have new values for our name, yumminess
   db.Foods.findById(req.body.id, function (err, food) {
     if (err) {
-      res.status(500).send("db find error");
+      res.status(500).send({ error: 'database find error' });
     } else {
       if (req.body.name) {
+        // if form gave us a new name, update the food's name
         food.name = req.body.name;
       }
       if (req.body.yumminess){
+        // if form gave us a new yumminess, update that
         food.yumminess = req.body.yumminess;
       }
+      // save the updated document
       food.save(function (err) {
         if (err){
-          res.status(500).send("db save error");
+          res.status(500).send({ error: 'database save error' });
         }
       });
     }
-    res.redirect('/');
   });
+  res.status(200).send();
 });
 
 app.delete("/foods/:id", function (req, res){
-  // find item in the db matching the id
-  console.log(req.params.id);
+  // remove item in the db matching the id
   db.Foods.remove({_id: req.params.id}, function(err, results){
     if (err){
       res.status(500).send({ error: 'database error' });
     } else {
-      console.log("removed item with id ", req.params.id);
       res.status(200).send();
     }
   });

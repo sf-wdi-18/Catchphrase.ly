@@ -46,7 +46,7 @@
         
         <div class="buttons">
           <!-- edit link (pencil icon) to toggle form -->
-          <a id="toggler" href="#" data-toggle="collapse" class="active" data-target="#update-<%=item._id%>" >
+          <a id="toggler" data-toggle="collapse" class="active" data-target="#update-<%=item._id%>" >
             <span class="glyphicon glyphicon-pencil edit" ></span>
           </a>
           
@@ -57,7 +57,7 @@
         </div>
         <!-- update food form -->
         <div id="update-<%=item._id%>" class="collapse">
-          <form id="update-form-<%=item._id%>" class="form-inline" onsubmit="Food.update(event, this)">
+          <form id="update-form-<%=item._id%>" data-foodid="<%=item._id%>" class="form-inline" onsubmit="Food.update(event, this)">
             <input name="name" type="text" class="form-control" placeholder="New food name?">
             <input name="yumminess" class="form-control" placeholder="New yumminess?">
             <button type="submit" class="btn btn-default">Update food</button>

@@ -30,6 +30,6 @@
   opacity: .5;
 }
 
-.close{
-	/*float: right;*/
+.collapse {
+  padding-top: 10px;
 }

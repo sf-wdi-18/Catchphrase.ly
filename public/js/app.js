@@ -17,7 +17,7 @@ View.init = function() {
     e.preventDefault();
     // format form data into a query string
     var foodParams = $(this).serialize();
-    console.log("createfood foodparams",foodParams, "!")
+    // send a post request to put this food in db
     Food.create(foodParams);
     // reset the form
     $("#food-form")[0].reset();
@@ -52,7 +52,6 @@ Food.create = function(foodParams) {
 }
 Food.delete = function(food) {
   var foodId = $(food).data().id;
-  console.log(foodId);
   $.ajax({
     url: '/foods/' + foodId,
     type: 'DELETE',
@@ -63,22 +62,17 @@ Food.delete = function(food) {
   });
 };
 
-Food.update = function(event, arg2){
-  console.log("hi)")
-  console.log("event", event);
-  console.log("this, ", arg2)
-  //var foodParams = $(this).serialize();
-  // parsing the event out  
-  var foodParams = {};
-  var foodId = event.target.id.split("").slice(12).join("");
-  var newName = event.target[0].value;
-  var newYumminess = event.target[1].value;
-
+Food.update = function(e, form){
+  e.preventDefault();
+  // pull the values we want out of form
+  var $form = $(form);
+  var foodId = $form.data().foodid;
+  var newName = $form.find("input[name='name']").val();
+  var newYumminess = $form.find("input[name='yumminess']").val();
+  // send a POST request with the form values
   $.post("/update", {id: foodId, name: newName, yumminess: newYumminess})
   .done(function(res){
-    console.log("updated, yay!");
-   // Food.all();
+    // once done, re-render everything
+    Food.all();
   });
-  console.log("after response;")
-  return false;
 }
