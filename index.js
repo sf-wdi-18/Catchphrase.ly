@@ -1,3 +1,5 @@
+// SERVER
+
 // REQUIREMENTS //
 var express = require("express"),
     app = express(),
@@ -17,29 +19,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // DATA //
 
 function drop(Model){
-  // removes all documents from this model
+  // remove all documents from this model
   Model.remove({}, function(err) { 
-   console.log('all Foods documents removed');
+   console.log('all Phrases documents removed');
   });
 }
-//drop(db.Foods);
+//drop(db.Phrases);
 
 
-// pre-seeded food data
-var foods =[
-  {id: 0, name: "Sushiritto", yumminess: "quite"},
-  {id: 1, name: "Green Eggs & Ham", yumminess: "sure"},
-  {id: 2, name: "Crayfish", yumminess: "depending"},
-  {id: 4, name: "Kale", yumminess: "meh"}
+// pre-seeded phrase data
+var phrases =[
+  {id: 0, word: "JSON", definition: "JavaScript Object Notation"},
+  {id: 1, word: "CRUD", definition: "Create, Read, Update, Delete"},
+  {id: 2, word: "AJAX", definition: "Asynchronous JavaScript and XML"},
+  {id: 3, word: "DB", definition: "database"}
 ];
 
-// let's put those foods in our database!
-function addFoods(foodList){
-  for (var i=0; i<foodList.length; i++){
-    db.Foods.create({name: foodList[i].name, yumminess: foodList[i].yumminess});
+// let's put those phrases in our database!
+function addPhrases(phraseList){
+  for (var i=0; i<phraseList.length; i++){
+    db.Phrases.create({word: phraseList[i].word, definition: phraseList[i].definition});
   }
 }
-//addFoods(foods);
+//addPhrases(phrases);
 
 // ROUTES //
 
@@ -49,42 +51,42 @@ app.get("/", function (req, res){
   res.sendFile(path.join(__dirname + '/public/views/index.html'));
 });
 
-// foods index path
-app.get("/foods", function (req, res){
-  // find *all* foods
-  db.Foods.find({}, function(err, results){
+// phrases index path
+app.get("/phrases", function (req, res){
+  // find *all* phrases
+  db.Phrases.find({}, function(err, results){
     // send them as JSON-style string
     res.send(JSON.stringify(results));
   })
 });
 
-app.post("/foods", function (req, res){
-  // find new food in the req.body (thanks body parser)
-  var newFood = req.body;
-  // add the new food to our db (mongoose will give it an _id)
-  db.Foods.create(newFood);
+app.post("/phrases", function (req, res){
+  // find new phrase in the req.body (thanks body parser)
+  var newPhrase = req.body;
+  // add the new phrase to our db (mongoose will give it an _id)
+  db.Phrases.create(newPhrase);
   // respond with the created object as json string
-  res.send(JSON.stringify(newFood));
+  res.send(JSON.stringify(newPhrase));
 });
 
 app.post("/update", function(req, res){
-  console.log("updating food with these params", req.body);
+  console.log("updating phrase with these params", req.body);
   // not using findByIdAndUpdate because I want to individually check
-  // if we have new values for our name, yumminess
-  db.Foods.findById(req.body.id, function (err, food) {
+  // if we have new values for our word, definition
+  db.Phrases.findById(req.body.id, function (err, phrase) {
     if (err) {
       res.status(500).send({ error: 'database find error' });
     } else {
-      if (req.body.name) {
-        // if form gave us a new name, update the food's name
-        food.name = req.body.name;
+      if (req.body.word) {
+        // if form gave us a new word, update the phrase's word
+        phrase.word = req.body.word;
       }
-      if (req.body.yumminess){
-        // if form gave us a new yumminess, update that
-        food.yumminess = req.body.yumminess;
+      if (req.body.definition){
+        // if form gave us a new definition, update that
+        phrase.definition = req.body.definition;
       }
       // save the updated document
-      food.save(function (err) {
+      phrase.save(function (err) {
         if (err){
           res.status(500).send({ error: 'database save error' });
         }
@@ -94,9 +96,9 @@ app.post("/update", function(req, res){
   res.status(200).send();
 });
 
-app.delete("/foods/:id", function (req, res){
+app.delete("/phrases/:id", function (req, res){
   // remove item in the db matching the id
-  db.Foods.remove({_id: req.params.id}, function(err, results){
+  db.Phrases.remove({_id: req.params.id}, function(err, results){
     if (err){
       res.status(500).send({ error: 'database error' });
     } else {

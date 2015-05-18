@@ -1,7 +1,9 @@
+// CLIENT
+
 // on page load
 $(function(){
-  // get and render the food
-  Food.all();
+  // get and render all the phrases
+  Phrases.all();
   // set the view's behaviors
   View.init();
 });
@@ -11,19 +13,19 @@ $(function(){
 // VIEW OBJECT
 function View() {};
 View.init = function() {
-  // food form submit event listener
-  $("#food-form").on("submit", function(e){
+  // phrase form submit event listener
+  $("#phrase-form").on("submit", function(e){
     // stop page reload
     e.preventDefault();
     // format form data into a query string
-    var foodParams = $(this).serialize();
-    // send a post request to put this food in db
-    Food.create(foodParams);
+    var phraseParams = $(this).serialize();
+    // send a post request to put this phrase in db
+    Phrases.create(phraseParams);
     // reset the form
-    $("#food-form")[0].reset();
-    // give focus back to the food name input element
+    $("#phrase-form")[0].reset();
+    // give focus back to the phrase word input element
     // (instead of whichever was focused when submit event happened)
-    $("#new-food").focus();
+    $("#new-phrase").focus();
   });
 }
 View.render = function(items, parentId, templateId) {
@@ -33,46 +35,46 @@ View.render = function(items, parentId, templateId) {
   $("#" + parentId).html(template({collection: items}));
 };
 
-// FOOD OBJECT
-function Food() {};
-Food.all = function() {
-  $.get("/foods", function(res){ 
+// PHRASES OBJECT
+function Phrases() {};
+Phrases.all = function() {
+  $.get("/phrases", function(res){ 
     // parse the response
-    var foods = JSON.parse(res);
+    var phrases = JSON.parse(res);
     // render the results
-    View.render(foods, "food-ul", "foods-template");
+    View.render(phrases, "phrase-ul", "phrases-template");
   });
 }
 
-Food.create = function(foodParams) {
-  $.post("/foods", foodParams).done(function(res){
-    // once done, re-render all foods
-    Food.all();
+Phrases.create = function(phraseParams) {
+  $.post("/phrases", phraseParams).done(function(res){
+    // once done, re-render all phrases
+    Phrases.all();
   });
 }
-Food.delete = function(food) {
-  var foodId = $(food).data().id;
+Phrases.delete = function(phrase) {
+  var phraseId = $(phrase).data().id;
   $.ajax({
-    url: '/foods/' + foodId,
+    url: '/phrases/' + phraseId,
     type: 'DELETE',
     success: function(res) {
-      // once successfull, re-render all foods
-      Food.all();
+      // once successfull, re-render all phrases
+      Phrases.all();
     }
   });
 };
 
-Food.update = function(e, form){
+Phrases.update = function(e, form){
   e.preventDefault();
   // pull the values we want out of form
   var $form = $(form);
-  var foodId = $form.data().foodid;
-  var newName = $form.find("input[name='name']").val();
-  var newYumminess = $form.find("input[name='yumminess']").val();
+  var phraseId = $form.data().phraseid;
+  var newWord = $form.find("input[name='word']").val();
+  var newdefinition = $form.find("input[name='definition']").val();
   // send a POST request with the form values
-  $.post("/update", {id: foodId, name: newName, yumminess: newYumminess})
+  $.post("/update", {id: phraseId, word: newWord, definition: newdefinition})
   .done(function(res){
     // once done, re-render everything
-    Food.all();
+    Phrases.all();
   });
 }

@@ -1,12 +1,13 @@
+// DATABASE 
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/Foods_app");
+mongoose.connect("mongodb://localhost/Phrases_app");
 var Schema = mongoose.Schema;
 
-var FoodSchema = new Schema({
-	name: String,
-	yumminess: String
+var PhraseSchema = new Schema({
+	word: String,
+	definition: String
 });
 
-var Foods = mongoose.model("Foods", FoodSchema);
+var Phrases = mongoose.model("Phrases", PhraseSchema);
 
-module.exports.Foods = Foods;
+module.exports.Phrases = Phrases;
