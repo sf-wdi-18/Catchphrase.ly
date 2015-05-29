@@ -73,3 +73,11 @@ Submit a link to the catchphrase repo on your GitHub account.
 * Users should be able to delete specific phrases (from the DB)
 
 **Bonus**: Users should be able to edit & save (update) catchphrases that are already in the DB.
+
+<br><br><br>
+
+##Heroku Hosting
+
+Bonus: Going into project one, let's look at how to host the Catchphrase.ly app on [Heroku](http://start.heroku.com)!
+
+Reference Lesson: [Getting set up on Heroku with Node + Mongoose](https://github.com/sf-wdi-18/notes/blob/master/deploy_node_mongo.md)
