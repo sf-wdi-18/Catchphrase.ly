@@ -1,6 +1,9 @@
 // DATABASE 
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/Phrases_app");
+
+mongoose.connect( process.env.MONGOLAB_URI ||
+               process.env.MONGOHQ_URL || 
+               "mongodb://localhost/Phrases_app");
 var Schema = mongoose.Schema;
 
 var PhraseSchema = new Schema({

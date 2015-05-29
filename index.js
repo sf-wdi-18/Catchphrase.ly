@@ -107,7 +107,7 @@ app.delete("/phrases/:id", function (req, res){
   });
 });
 
-// listen on port 3000
+// listen!
 app.listen(process.env.PORT || 3000, function (){
-  console.log("listening on port 3000");
+  console.log("listening");
 });
