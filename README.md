@@ -51,7 +51,7 @@ Reference lesson: [Single Page POST & DELETE](https://github.com/sf-wdi-18/notes
    
 ##Day 3 / Weekend
 
-We will be building the last interation of the [CatchPrase.ly App](https://github.com/sf-wdi-18/Catchphrase.ly/blob/master/README.md)!
+We will be building our last interation of the CatchPhrase.ly App!
 
 Before you start, *make sure* you've completed Parts [1](https://github.com/sf-wdi-18/Catchphrase.ly/blob/master/README.md#day-1---get--render) & [2](https://github.com/sf-wdi-18/Catchphrase.ly/blob/master/README.md#day-2---post--delete). You *must* have routes for **Reading, Creating, and Deleting** your data.
 
